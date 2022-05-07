@@ -1,0 +1,286 @@
+# Try setting this to true
+debug: false
+
+logging:
+  level:
+    root: INFO
+
+server:
+  http2:
+    enabled: true
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driver: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+
+randomiser:
+  currentRundownId: 6
+  weapons:
+    1:
+      p:
+        - Pistol
+        - SMG
+        - DMR
+        - Assault Rifle
+      s:
+        - Shotgun
+        - Combat Shotgun
+        - Revolver
+        - Machinegun
+        - Sniper
+      t:
+        - Biotracker
+        - C-Foam Launcher
+        - Burst Sentry
+        - Mine Deployer
+        - Shotgun Sentry
+      m:
+        - Sledgehammer
+        - Maul
+        - Mallet
+        - Gavel
+    2:
+      p:
+        - Pistol
+        - Machinepistol
+        - SMG
+        - DMR
+        - Assault Rifle
+        - Burst Rifle
+      s:
+        - Shotgun
+        - Combat Shotgun
+        - Revolver
+        - Machinegun
+        - Sniper
+      t:
+        - C-Foam Launcher
+        - Biotracker
+        - Mine Deployer
+        - Burst Sentry
+        - Shotgun Sentry
+      m:
+        - Sledgehammer
+        - Maul
+        - Mallet
+        - Gavel
+    3:
+      p:
+        - Pistol
+        - Bullpup Rifle
+        - SMG
+        - Carbine
+        - DMR
+        - Assault Rifle
+        - Rifle
+      s:
+        - Shotgun
+        - Combat Shotgun
+        - Revolver
+        - Burst Cannon
+        - HEL Gun
+        - Sniper
+        - HEL Rifle
+      t:
+        - C-Foam Launcher
+        - Biotracker
+        - Mine Deployer
+        - Burst Sentry
+        - Shotgun Sentry
+      m:
+        - Sledgehammer
+        - Maul
+        - Mallet
+        - Gavel
+    4:
+      p:
+        - Pistol
+        - HEL Revolver
+        - Autopistol
+        - SMG
+        - Carbine
+        - DMR
+        - Assault Rifle
+        - Heavy Assault Rifle
+      s:
+        - Shotgun
+        - Combat Shotgun
+        - Choke Mod Shotgun
+        - Revolver
+        - Machinegun
+        - Burst Cannon
+        - Sniper
+      t:
+        - C-Foam Launcher
+        - Biotracker
+        - Mine Deployer
+        - Auto Sentry
+        - Burst Sentry
+        - Shotgun Sentry
+      m:
+        - Sledgehammer
+        - Maul
+        - Mallet
+        - Gavel
+    5:
+      p:
+        - Pistol
+        - DMR
+        - SMG
+        - Assault Rifle
+        - Machinepistol
+        - Heavy SMG
+        - Double-Tap Rifle
+        - Burst Rifle
+      s:
+        - Shotgun
+        - Combat Shotgun
+        - Sniper
+        - Machinegun
+        - Revolver
+        - HEL Gun
+        - HEL Rifle
+      t:
+        - Biotracker
+        - C-Foam Launcher
+        - Mine Deployer
+        - Burst Sentry
+        - Auto Sentry
+        - Sniper Sentry
+      m:
+        - Sledgehammer
+        - Maul
+        - Mallet
+        - Gavel
+    6:
+      p:
+        - Pistol
+        - HEL Revolver
+        - Machinepistol
+        - Bullpup Rifle
+        - SMG
+        - DMR
+        - Assault Rifle
+        - Burst Rifle
+        - Sawed-Off Shotgun
+      s:
+        - Heavy Assault Rifle
+        - Shotgun
+        - Scattergun
+        - Choke Mod Shotgun
+        - Revolver
+        - Machinegun
+        - HEL Gun
+        - Sniper
+      t:
+        - Biotracker
+        - C-Foam Launcher
+        - Mine Deployer
+        - Auto Sentry
+        - Sniper Sentry
+        - Burst Sentry
+      m:
+        - Sledgehammer
+        - Knife
+        - Spear
+        - Bat
+  stages:
+    1:
+      A1: [ "High" ]
+      B1: [ "High" ]
+      B2: [ "High" ]
+      C1: [ "High" ]
+      C2: [ "High" ]
+      D1: [ "High" ]
+    2:
+      A1: [ "High" ]
+      B1: [ "High" ]
+      B2: [ "High" ]
+      B3: [ "High" ]
+      C1: [ "High" ]
+      C2: [ "High" ]
+      D1: [ "High" ]
+      D2: [ "High" ]
+      E1: [ "High" ]
+    3:
+      A1: [ "High" ]
+      A2: [ "High" ]
+      A3: [ "High" ]
+      B1: [ "High" ]
+      B2: [ "High" ]
+      C1: [ "High" ]
+      D1: [ "High" ]
+    4:
+      A1: [ "High", "Extreme" ]
+      A2: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      A3: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      B1: [ "High", "Extreme" ]
+      B2: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      B3: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      C1: [ "High", "Extreme" ]
+      C2: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      C3: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      D1: [ "High", "Extreme" ]
+      D2: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      E1: [ "High", "Extreme" ]
+    5:
+      A1: [ "High", "Extreme" ]
+      A2: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      A3: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      B1: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      B2: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      B3: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      B4: [ "High" ]
+      C1: [ "High", "Extreme" ]
+      C2: [ "High", "Extreme", "Overload", "Prisoner Efficiency" ]
+      C3: [ "High", "Extreme" ]
+      D1: [ "High", "Extreme" ]
+      D2: [ "High" ]
+      E1: [ "High" ]
+    6:
+      A1: [ "Main" ]
+      B1: [ "Main" ]
+      B2: [ "Main", "Secondary" ]
+      BX: [ "Main" ]
+      C1: [ "Main" ]
+      C2: [ "Main", "Secondary" ]
+      C3: [ "Main", "Secondary", "Overload", "Prisoner Efficiency" ]
+      CX: [ "Main", "Secondary" ]
+      D1: [ "Main" ]
+      D2: [ "Main", "Secondary" ]
+      D3: [ "Main", "Secondary", "Overload", "Prisoner Efficiency" ]
+      D4: [ "Main" ]
+      DX: [ "Main" ]
+  handicaps:
+    - "Play on 20 FOV"
+    - "Play on max FOV"
+    - "Unbind your left and right strafe keys"
+    - "Don't use your melee weapon"
+    - "Utility (mines, C-Foam, etc) are forbidden"
+    - "Do not use any ammo packs"
+    - "You must keep all scouts alive (if applicable)"
+    - "Set your mouse sensitivity to the minimum"
+    - "Disable your HUD (set the opacity to 0)"
+    - "No walking or crouching (sprint as much as possible)"
+    - "No using the fog turbine (if applicable)"
+    - "Reversed movement (S is forward, W is backward, etc)"
+    - "You must crouch through every non-cleared room and every enemy wave"
+    - "You must trigger every scout that you encounter"
+    - "Don't open any doors. You must break them down or not enter the room"
+    - "Play the entire stage on 20% hp only"
+    - "You cannot use the map under any circumstance"
+    - "No using terminals except for commands required for objectives"
+    - "Only walk sideways and backwards (unbind your walk forward key)"
+    - "No killing enemies unless they are already awake"
+    - "Swap the keybinds for your shoot and aim buttons"
+    - "No boosters allowed"
