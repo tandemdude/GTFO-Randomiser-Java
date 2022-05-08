@@ -3,7 +3,7 @@ package io.github.tandemdude.gtforandomiser.models.responses;
 import lombok.Data;
 
 @Data
-public class DiscordComponentInteractionResponse {
+public class DiscordInteractionResponse<T> {
     private final int type;
-    private final DiscordComponentInteractionResponseData data;
+    private final T data;
 }

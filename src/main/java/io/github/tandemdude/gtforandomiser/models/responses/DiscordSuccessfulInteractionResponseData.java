@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Data
-public class DiscordComponentInteractionResponseData {
+public class DiscordSuccessfulInteractionResponseData {
     private final String content;
     private final List<?> components = Collections.emptyList();
 }

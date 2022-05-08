@@ -3,8 +3,9 @@ package io.github.tandemdude.gtforandomiser.services;
 import io.github.tandemdude.gtforandomiser.models.db.DailySubmission;
 import io.github.tandemdude.gtforandomiser.models.discord.Interaction;
 import io.github.tandemdude.gtforandomiser.models.discord.User;
-import io.github.tandemdude.gtforandomiser.models.responses.DiscordComponentInteractionResponse;
-import io.github.tandemdude.gtforandomiser.models.responses.DiscordComponentInteractionResponseData;
+import io.github.tandemdude.gtforandomiser.models.responses.DiscordFailedInteractionResponseData;
+import io.github.tandemdude.gtforandomiser.models.responses.DiscordInteractionResponse;
+import io.github.tandemdude.gtforandomiser.models.responses.DiscordSuccessfulInteractionResponseData;
 import io.github.tandemdude.gtforandomiser.repositories.DailySubmissionRepository;
 import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
@@ -13,6 +14,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyFactory;
 import java.security.Security;
@@ -29,6 +31,8 @@ public class DiscordWebhookService {
 
     @Value("${DISCORD_PUBLIC_KEY}")
     private String publicKey;
+    @Value("${DAILY_SUBMISSION_MODERATOR_ROLE_ID}")
+    private Long moderatorRoleId;
 
     public DiscordWebhookService(DailySubmissionRepository submissionRepository) {
         this.submissionRepository = submissionRepository;
@@ -54,16 +58,26 @@ public class DiscordWebhookService {
         }
     }
 
-    public DiscordComponentInteractionResponse handleInteraction(Interaction interaction) {
+    @Transactional
+    public DiscordInteractionResponse<?> handleInteraction(Interaction interaction) {
+        if (!interaction.getMember().getRoles().contains(moderatorRoleId)) {
+            return new DiscordInteractionResponse<>(
+                    4, // MessageCreate
+                    new DiscordFailedInteractionResponseData(
+                            "You do not have permission to verify/reject runs."
+                    )
+            );
+        }
+
         String[] customIdParts = interaction.getData().getCustom_id().split("_");
         boolean runAccepted = customIdParts[0].equals("verify");
         long runId = Long.parseLong(customIdParts[1]);
 
         Optional<DailySubmission> retrievedSubmission = submissionRepository.findById(runId);
         if (retrievedSubmission.isEmpty()) {
-            return new DiscordComponentInteractionResponse(
+            return new DiscordInteractionResponse<>(
                     4,
-                    new DiscordComponentInteractionResponseData(
+                    new DiscordSuccessfulInteractionResponseData(
                             String.format("Run with ID `%s` was not found", runId)
                     )
             );
@@ -77,9 +91,9 @@ public class DiscordWebhookService {
         }
 
         User interactionAuthor = interaction.getAuthor();
-        return new DiscordComponentInteractionResponse(
+        return new DiscordInteractionResponse<>(
                 7, // Message update
-                new DiscordComponentInteractionResponseData(
+                new DiscordSuccessfulInteractionResponseData(
                         String.format(
                                 "Run ID `%s` %s by `%s`",
                                 runId, runAccepted ? "verified" : "rejected", interactionAuthor.toString()
