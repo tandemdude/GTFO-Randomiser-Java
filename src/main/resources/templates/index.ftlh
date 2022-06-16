@@ -55,6 +55,7 @@
         <button class="btn btn-dark" type="button" onclick="get_loadout(4)">Rundown 4</button>
         <button class="btn btn-dark" type="button" onclick="get_loadout(5)">Rundown 5</button>
         <button class="btn btn-dark" type="button" onclick="get_loadout(6)">Rundown 6</button>
+        <button class="btn btn-dark" type="button" onclick="get_loadout(7)">Rundown 6</button>
     </div>
 </section>
 <hr style="width: 80%">
