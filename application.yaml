@@ -24,7 +24,7 @@ spring:
       ddl-auto: validate
 
 randomiser:
-  currentRundownId: 6
+  currentRundownId: 7
   weapons:
     1:
       p:
@@ -39,7 +39,7 @@ randomiser:
         - Machinegun
         - Sniper
       t:
-        - Biotracker
+        - Bio Tracker
         - C-Foam Launcher
         - Burst Sentry
         - Mine Deployer
@@ -65,7 +65,7 @@ randomiser:
         - Sniper
       t:
         - C-Foam Launcher
-        - Biotracker
+        - Bio Tracker
         - Mine Deployer
         - Burst Sentry
         - Shotgun Sentry
@@ -93,7 +93,7 @@ randomiser:
         - HEL Rifle
       t:
         - C-Foam Launcher
-        - Biotracker
+        - Bio Tracker
         - Mine Deployer
         - Burst Sentry
         - Shotgun Sentry
@@ -122,7 +122,7 @@ randomiser:
         - Sniper
       t:
         - C-Foam Launcher
-        - Biotracker
+        - Bio Tracker
         - Mine Deployer
         - Auto Sentry
         - Burst Sentry
@@ -151,7 +151,7 @@ randomiser:
         - HEL Gun
         - HEL Rifle
       t:
-        - Biotracker
+        - Bio Tracker
         - C-Foam Launcher
         - Mine Deployer
         - Burst Sentry
@@ -183,12 +183,44 @@ randomiser:
         - HEL Gun
         - Sniper
       t:
-        - Biotracker
+        - Bio Tracker
         - C-Foam Launcher
         - Mine Deployer
         - Auto Sentry
         - Sniper Sentry
         - Burst Sentry
+      m:
+        - Sledgehammer
+        - Knife
+        - Spear
+        - Bat
+    7:
+      p:
+        - Pistol
+        - HEL Revolver
+        - Bullpup Rifle
+        - SMG
+        - PDW
+        - Carbine
+        - DMR
+        - Assault Rifle
+        - HEL Shotgun
+      s:
+        - High Caliber Pistol
+        - Heavy Assault Rifle
+        - Shotgun
+        - Choke Mod Shotgunn
+        - Revolver
+        - Machinegun
+        - Sniper
+        - Precision Rifle
+      t:
+        - C-Foam Launcher
+        - Bio Tracker
+        - Mine Deployer
+        - Burst Sentry
+        - Sniper Sentry
+        - Shotgun Sentry
       m:
         - Sledgehammer
         - Knife
@@ -261,6 +293,17 @@ randomiser:
       D3: [ "Main", "Secondary", "Overload", "Prisoner Efficiency" ]
       D4: [ "Main" ]
       DX: [ "Main" ]
+    7:
+      A1: [ "Main" ]
+      B1: [ "Main" ]
+      B2: [ "Main", "Secondary" ]
+      B3: [ "Main", "Secondary", "Overload", "Prisoner Efficiency" ]
+      C1: [ "Main" ]
+      C2: [ "Main", "Secondary", "Overload", "Prisoner Efficiency" ]
+      C3: [ "Main", "Secondary", "Overload", "Prisoner Efficiency" ]
+      D1: [ "Main", "Secondary" ]
+      D2: [ "Main" ]
+      E1: [ "Main" ]
   handicaps:
     - "Play on 20 FOV"
     - "Play on max FOV"
